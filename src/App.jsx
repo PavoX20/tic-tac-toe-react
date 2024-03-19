@@ -51,7 +51,7 @@ function App() {
   });
 
   const [winner, setWinner] = useState(()=>{
-    return window.localStorage.getItem("winner");
+    return null
   }); //null no hay ganador,  false, hay un empate
 
   const resetGame = () => {
