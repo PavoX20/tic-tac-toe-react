@@ -38,7 +38,7 @@ const winnerCombos = [
 ]
 
 function App() {
-  const [board, setBoard] = useState(() => {
+  const [board, setBoard] = useState( () => {
     const savedBoard = window.localStorage.getItem("board");
     return savedBoard ? JSON.parse(savedBoard) : Array(9).fill(null);
   
@@ -51,7 +51,8 @@ function App() {
   });
 
   const [winner, setWinner] = useState(()=>{
-    return null
+    
+    return window.localStorage.getItem("winner") === "false" ? false : window.localStorage.getItem("winner");
   }); //null no hay ganador,  false, hay un empate
 
   const resetGame = () => {
@@ -99,7 +100,7 @@ function App() {
     window.localStorage.setItem("board", JSON.stringify(newBoard));
     window.localStorage.setItem("turn", newTurn); 
     window.localStorage.setItem("winner", newWinner);
-    console.log(newWinner);
+    
   }
 
   return (
